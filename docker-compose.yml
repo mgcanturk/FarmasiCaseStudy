@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: farmasicasestudy_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo:/data/db
+  redis:
+    image: redis:alpine
+    container_name: farmasicasestudy_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+  farmasicasestudy.api:
+    image: ${DOCKER_REGISTRY-}farmasicasestudyapi
+    build:
+      context: .
+      dockerfile: FarmasiCaseStudy.API/Dockerfile
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - "5000:80"

@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  farmasicasestudy.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "MongoConnection:ConnectionString=mongodb://farmasicasestudy_mongo:27017"
+      - "MongoConnection:Database=FarmasiStore"
+      - "RedisConnection:ConnectionString=farmasicasestudy_redis:6379"
+    ports:
+      - "5000:80"

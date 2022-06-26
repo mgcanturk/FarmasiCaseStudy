@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "farmasicasestudy.api",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger/index.html",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "farmasicasestudy.api": "StartDebugging",
+        "mongo": "StartWithoutDebugging",
+        "redis": "StartWithoutDebugging"
+      }
+    }
+  }
+}
